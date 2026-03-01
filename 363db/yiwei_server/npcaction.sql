@@ -447,7 +447,7 @@ INSERT INTO `npcaction` VALUES ('70514', 'freehaste', 'freehaste', '', '');
 INSERT INTO `npcaction` VALUES ('70517', 'cuse1', 'cuse1', 'cuse3', '');
 INSERT INTO `npcaction` VALUES ('70518', 'tio', 'tio', '', '');
 INSERT INTO `npcaction` VALUES ('70519', 'peria1', 'peria1', 'peria2', '');
-INSERT INTO `npcaction` VALUES ('70520', 'y_e2', 'y_e2', '', '');
+INSERT INTO `npcaction` VALUES ('70520', 'alchemy1', 'alchemy1', 'alchemy4', '');
 INSERT INTO `npcaction` VALUES ('70523', 'ladar1', 'ladarC1', '', '');
 INSERT INTO `npcaction` VALUES ('70525', 'lien1', 'lienC1', '', '');
 INSERT INTO `npcaction` VALUES ('70526', 'raiders1', 'raiders1', 'raiders3', '');
