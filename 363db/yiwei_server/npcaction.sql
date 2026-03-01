@@ -824,3 +824,4 @@ INSERT INTO `npcaction` VALUES ('81206', 'minitos2', 'minitos2', '', '');
 INSERT INTO `npcaction` VALUES ('81207', 'minitos1', 'minitos1', '', '');
 INSERT INTO `npcaction` VALUES ('81208', 'minibrob01', 'minibrob01', '', '');
 INSERT INTO `npcaction` VALUES ('91050', 'cold1', 'cold1', '', '');
+INSERT INTO `npcaction` VALUES ('81288', 'pandora', 'pandora5', '', '');

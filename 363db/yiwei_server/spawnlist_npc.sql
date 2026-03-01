@@ -1099,3 +1099,5 @@ INSERT INTO `spawnlist_npc` VALUES ('11153', 'scarecrow', '1', '45003', '32591',
 INSERT INTO `spawnlist_npc` VALUES ('11154', 'scarecrow', '1', '45003', '32597', '32916', '0', '0', '6', '0', '2005', '0');
 INSERT INTO `spawnlist_npc` VALUES ('11155', '修练场管理员', '1', '81245', '32586', '32916', '0', '0', '5', '0', '2005', '0');
 INSERT INTO `spawnlist_npc` VALUES ('11156', '奇岩地监传送', '1', '81287', '33428', '32825', '0', '0', '5', '0', '4', '0');
+INSERT INTO `spawnlist_npc` VALUES ('11157', '奇怪的商人', '1', '86121', '33449', '32807', '0', '0', '4', '0', '4', '0');
+INSERT INTO `spawnlist_npc` VALUES ('11158', '首饰商人', '1', '81288', '33449', '32802', '0', '0', '4', '0', '4', '0');
