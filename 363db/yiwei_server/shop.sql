@@ -2382,5 +2382,5 @@ INSERT INTO `shop` VALUES ('1', '40524', '809', '1', '0', '-1');
 INSERT INTO `shop` VALUES ('99999', '41218', '411', '-1', '0', '8050000');
 INSERT INTO `shop` VALUES ('80080', '41293', '1', '15000', '1', '5000');
 INSERT INTO `shop` VALUES ('80080', '41294', '2', '15000', '1', '5000');
-INSERT INTO `shop` VALUES ('81288', '20264', '0', '1', '1', '-1');
-
+INSERT INTO `shop` VALUES ('81288', '41246', '0', '100', '1', '-1');
+INSERT INTO `shop` VALUES ('81288', '40733', '0', '50000', '1', '-1');
