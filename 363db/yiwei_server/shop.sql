@@ -2402,4 +2402,3 @@ INSERT INTO `shop` VALUES ('81288', '40032', '16', '300', '1', '-1');
 INSERT INTO `shop` VALUES ('81288', '40088', '17', '1300', '1', '-1');
 INSERT INTO `shop` VALUES ('81288', '40317', '18', '150', '1', '-1');
 INSERT INTO `shop` VALUES ('81288', '40744', '19', '5', '5', '-1');
-INSERT INTO `shop` VALUES ('81288', '40126', '20', '50', '1', '-1');
