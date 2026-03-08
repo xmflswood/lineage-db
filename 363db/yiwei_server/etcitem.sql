@@ -1958,3 +1958,4 @@ INSERT INTO `etcitem` VALUES ('56071', '测试之袋', '0', '测试之袋', 'tre
 INSERT INTO `etcitem` VALUES ('49537', '封号卡', 'shop.UserTitle', '封号卡', 'other', 'normal', 'paper', '0', '1863', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `etcitem` VALUES ('49538', '密码修改卷轴', 'shop.ResetPassword', '密码修改卷轴', 'other', 'normal', 'paper', '0', '205', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `etcitem` VALUES ('60219', '魔法娃娃成长药剂', 'doll.DollSolution', '$11462', 'gem', 'choice_doll', 'gemstone', '20', '4110', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '1', '1', '0', '0', '0', '0', '1');
+INSERT INTO `etcitem` VALUES ('49295', '奇岩传送符', 'teleport.SOR_UserSet2', '奇岩传送符', 'other', 'normal', 'paper', '10000', '1036', '2879', '922', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '0', '0', '0', '1');

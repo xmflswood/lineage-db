@@ -185,5 +185,5 @@ INSERT INTO `etcitem_teleport` VALUES ('49185', '威顿村庄瞬间移动卷轴'
 INSERT INTO `etcitem_teleport` VALUES ('44071', '新手练功传送卷', '32860', '32895', '3041', '0');
 INSERT INTO `etcitem_teleport` VALUES ('49301', '新手练功传送卷(新手礼包)', '32860', '32895', '3041', '0');
 INSERT INTO `etcitem_teleport` VALUES ('49294', '古鲁丁村庄指定传送卷轴(新手礼包)', '32612', '32734', '4', '0');
-INSERT INTO `etcitem_teleport` VALUES ('49295', '奇岩村庄指定传送卷轴(新手礼包)', '33442', '32797', '4', '0');
+INSERT INTO `etcitem_teleport` VALUES ('49295', '奇岩传送符', '33442', '32797', '4', '0');
 INSERT INTO `etcitem_teleport` VALUES ('44157', '指定传送(污浊竞技场)', '32707', '32690', '632', '0');
