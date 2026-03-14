@@ -37,4 +37,4 @@ INSERT INTO `weapon_skill` VALUES ('76', '伦德双刀', '5', '5', '5', '0', '0'
 INSERT INTO `weapon_skill` VALUES ('121', '冰之女王魔杖', '5', '5', '5', '0', '0', '0', '1810', '0', '0', '4');
 INSERT INTO `weapon_skill` VALUES ('203', '炎魔的双手剑', '5', '5', '5', '2', '0', '0', '762', '0', '0', '2');
 INSERT INTO `weapon_skill` VALUES ('205', '炽炎天使弓', '5', '5', '5', '0', '0', '0', '6288', '0', '1', '0');
-INSERT INTO `weapon_skill` VALUES ('190', '沙哈之弓', '5', '5', '5', '0', '0', '0', '1799', '0', '0', '2');
+INSERT INTO `weapon_skill` VALUES ('190', '沙哈之弓', '5', '5', '5', '0', '0', '0', '10', '0', '0', '2');
