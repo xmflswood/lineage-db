@@ -26,4 +26,16 @@ if %errorlevel% equ 0 (
 )
 
 echo.
+echo 正在同步 public 目录到服务器...
+echo.
+
+scp -r public root@43.139.231.252:/root/server_20260212125150/
+
+if %errorlevel% equ 0 (
+    echo ✓ public 目录同步成功！
+) else (
+    echo ✗ public 目录同步失败，请检查网络连接或SSH配置。
+)
+
+echo.
 pause

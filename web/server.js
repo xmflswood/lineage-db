@@ -70,24 +70,58 @@ app.get('/api/armors', async (req, res) => {
 
     const connection = await pool.getConnection();
 
-    const query = `
-      SELECT item_id, name, type, material, weight,
-             ac, safenchant, add_str, add_con, add_dex, add_int, add_wis, add_cha,
-             add_hp, add_mp, add_hpr, add_mpr, add_sp,
-             use_royal, use_knight, use_mage, use_elf, use_darkelf,
-             use_dragonknight, use_illusionist, min_lvl, max_lvl,
-             defense_water, defense_wind, defense_fire, defense_earth,
-             regist_stun, regist_stone, regist_sleep, regist_freeze,
-             regist_sustain, regist_blind, grade
-      FROM armor
-      WHERE name LIKE ?
-      ORDER BY item_id ASC
-      LIMIT ? OFFSET ?
-    `;
+    // Check if keyword is a number (ID search)
+    const isIdSearch = !isNaN(keyword) && keyword.trim() !== '';
+    
+    let query, countQuery, params, countParams;
+    
+    if (isIdSearch) {
+      query = `
+        SELECT item_id, name, type, material, weight,
+               ac, safenchant, add_str, add_con, add_dex, add_int, add_wis, add_cha,
+               add_hp, add_mp, add_hpr, add_mpr, add_sp,
+               use_royal, use_knight, use_mage, use_elf, use_darkelf,
+               use_dragonknight, use_illusionist, min_lvl, max_lvl,
+               m_def, haste_item, damage_reduction, weight_reduction,
+               hit_modifier, dmg_modifier, bow_hit_modifier, bow_dmg_modifier,
+               bless, trade, cant_delete,
+               defense_water, defense_wind, defense_fire, defense_earth,
+               regist_stun, regist_stone, regist_sleep, regist_freeze,
+               regist_sustain, regist_blind
+        FROM armor
+        WHERE item_id = ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM armor WHERE item_id = ?`;
+      params = [parseInt(keyword), parseInt(limit), parseInt(offset)];
+      countParams = [parseInt(keyword)];
+    } else {
+      query = `
+        SELECT item_id, name, type, material, weight,
+               ac, safenchant, add_str, add_con, add_dex, add_int, add_wis, add_cha,
+               add_hp, add_mp, add_hpr, add_mpr, add_sp,
+               use_royal, use_knight, use_mage, use_elf, use_darkelf,
+               use_dragonknight, use_illusionist, min_lvl, max_lvl,
+               m_def, haste_item, damage_reduction, weight_reduction,
+               hit_modifier, dmg_modifier, bow_hit_modifier, bow_dmg_modifier,
+               bless, trade, cant_delete,
+               defense_water, defense_wind, defense_fire, defense_earth,
+               regist_stun, regist_stone, regist_sleep, regist_freeze,
+               regist_sustain, regist_blind
+        FROM armor
+        WHERE name LIKE ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM armor WHERE name LIKE ?`;
+      const searchPattern = `%${convertedKeyword}%`;
+      params = [searchPattern, parseInt(limit), parseInt(offset)];
+      countParams = [searchPattern];
+    }
 
-    const searchPattern = `%${convertedKeyword}%`;
-    const [results] = await connection.execute(query, [searchPattern, parseInt(limit), parseInt(offset)]);
-
+    const [results] = await connection.execute(query, params);
+    const [countResult] = await connection.execute(countQuery, countParams);
 
     connection.release();
 
@@ -103,7 +137,7 @@ app.get('/api/armors', async (req, res) => {
     res.json({
       success: true,
       data: formattedResults,
-      total: results.length,
+      total: countResult[0].total,
       keyword
     });
 
@@ -127,23 +161,52 @@ app.get('/api/weapons', async (req, res) => {
 
     const connection = await pool.getConnection();
 
-    const query = `
-      SELECT item_id, name, type, material, weight,
-             dmg_small, dmg_large, \`range\`, safenchant,
-             add_str, add_con, add_dex, add_int, add_wis, add_cha,
-             add_hp, add_mp, add_hpr, add_mpr, add_sp,
-             use_royal, use_knight, use_mage, use_elf, use_darkelf,
-             use_dragonknight, use_illusionist,
-             hitmodifier, dmgmodifier, double_dmg_chance, magicdmgmodifier,
-             canbedmg, min_lvl, bless
-      FROM weapon
-      WHERE name LIKE ?
-      ORDER BY item_id ASC
-      LIMIT ? OFFSET ?
-    `;
+    // Check if keyword is a number (ID search)
+    const isIdSearch = !isNaN(keyword) && keyword.trim() !== '';
+    
+    let query, countQuery, params, countParams;
+    
+    if (isIdSearch) {
+      query = `
+        SELECT item_id, name, type, material, weight,
+               dmg_small, dmg_large, \`range\`, safenchant,
+               add_str, add_con, add_dex, add_int, add_wis, add_cha,
+               add_hp, add_mp, add_hpr, add_mpr, add_sp,
+               use_royal, use_knight, use_mage, use_elf, use_darkelf,
+               use_dragonknight, use_illusionist,
+               hitmodifier, dmgmodifier, double_dmg_chance, magicdmgmodifier,
+               canbedmg, min_lvl, bless
+        FROM weapon
+        WHERE item_id = ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM weapon WHERE item_id = ?`;
+      params = [parseInt(keyword), parseInt(limit), parseInt(offset)];
+      countParams = [parseInt(keyword)];
+    } else {
+      query = `
+        SELECT item_id, name, type, material, weight,
+               dmg_small, dmg_large, \`range\`, safenchant,
+               add_str, add_con, add_dex, add_int, add_wis, add_cha,
+               add_hp, add_mp, add_hpr, add_mpr, add_sp,
+               use_royal, use_knight, use_mage, use_elf, use_darkelf,
+               use_dragonknight, use_illusionist,
+               hitmodifier, dmgmodifier, double_dmg_chance, magicdmgmodifier,
+               canbedmg, min_lvl, bless
+        FROM weapon
+        WHERE name LIKE ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM weapon WHERE name LIKE ?`;
+      const searchPattern = `%${convertedKeyword}%`;
+      params = [searchPattern, parseInt(limit), parseInt(offset)];
+      countParams = [searchPattern];
+    }
 
-    const searchPattern = `%${convertedKeyword}%`;
-    const [results] = await connection.execute(query, [searchPattern, parseInt(limit), parseInt(offset)]);
+    const [results] = await connection.execute(query, params);
+    const [countResult] = await connection.execute(countQuery, countParams);
 
 
     connection.release();
@@ -162,7 +225,7 @@ app.get('/api/weapons', async (req, res) => {
     res.json({
       success: true,
       data: formattedResults,
-      total: results.length,
+      total: countResult[0].total,
       keyword
     });
 
@@ -186,33 +249,63 @@ app.get('/api/monsters', async (req, res) => {
 
     const connection = await pool.getConnection();
 
-    const query = `
-      SELECT npcid, name, nameid, note, impl, gfxid, lvl, hp, mp, ac,
-             str, con, dex, wis, intel, mr, exp, lawful, size, weakAttr,
-             ranged, tamable, passispeed, atkspeed, alt_atk_speed,
-             atk_magic_speed, sub_magic_speed, undead, poison_atk,
-             paralysis_atk, agro, agrososc, agrocoi, family, agrofamily,
-             agrogfxid1, agrogfxid2, picupitem, digestitem, bravespeed,
-             hprinterval, hpr, mprinterval, mpr, teleport, randomlevel,
-             randomhp, randommp, randomac, randomexp, randomlawful,
-             damage_reduction, hard, doppel, IsTU, IsErase, bowActId,
-             karma, transform_id
-      FROM npc
-      WHERE name LIKE ?
-      ORDER BY npcid ASC
-      LIMIT ? OFFSET ?
-    `;
+    // Check if keyword is a number (ID search)
+    const isIdSearch = !isNaN(keyword) && keyword.trim() !== '';
+    
+    let query, countQuery, params, countParams;
+    
+    if (isIdSearch) {
+      query = `
+        SELECT npcid, name, nameid, note, impl, gfxid, lvl, hp, mp, ac,
+               str, con, dex, wis, intel, mr, exp, lawful, size, weakAttr,
+               ranged, tamable, passispeed, atkspeed,
+               atk_magic_speed, sub_magic_speed, undead, poison_atk,
+               paralysis_atk, agro, agrososc, agrocoi, family, agrofamily,
+               agrogfxid1, agrogfxid2, picupitem, digestitem, bravespeed,
+               hprinterval, hpr, mprinterval, mpr, teleport, randomlevel,
+               randomhp, randommp, randomac, randomexp, randomlawful,
+               damage_reduction, hard, doppel, IsTU, IsErase, bowActId,
+               karma, transform_id, transform_gfxid, light_size
+        FROM npc
+        WHERE npcid = ?
+        ORDER BY npcid ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM npc WHERE npcid = ?`;
+      params = [parseInt(keyword), parseInt(limit), parseInt(offset)];
+      countParams = [parseInt(keyword)];
+    } else {
+      query = `
+        SELECT npcid, name, nameid, note, impl, gfxid, lvl, hp, mp, ac,
+               str, con, dex, wis, intel, mr, exp, lawful, size, weakAttr,
+               ranged, tamable, passispeed, atkspeed,
+               atk_magic_speed, sub_magic_speed, undead, poison_atk,
+               paralysis_atk, agro, agrososc, agrocoi, family, agrofamily,
+               agrogfxid1, agrogfxid2, picupitem, digestitem, bravespeed,
+               hprinterval, hpr, mprinterval, mpr, teleport, randomlevel,
+               randomhp, randommp, randomac, randomexp, randomlawful,
+               damage_reduction, hard, doppel, IsTU, IsErase, bowActId,
+               karma, transform_id, transform_gfxid, light_size
+        FROM npc
+        WHERE name LIKE ?
+        ORDER BY npcid ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM npc WHERE name LIKE ?`;
+      const searchPattern = `%${convertedKeyword}%`;
+      params = [searchPattern, parseInt(limit), parseInt(offset)];
+      countParams = [searchPattern];
+    }
 
-    const searchPattern = `%${convertedKeyword}%`;
-    const [results] = await connection.execute(query, [searchPattern, parseInt(limit), parseInt(offset)]);
-
+    const [results] = await connection.execute(query, params);
+    const [countResult] = await connection.execute(countQuery, countParams);
 
     connection.release();
 
     res.json({
       success: true,
       data: results,
-      total: results.length,
+      total: countResult[0].total,
       keyword
     });
 
@@ -339,7 +432,7 @@ app.get('/api/droplist/by-item', async (req, res) => {
 
 app.get('/api/droplist/by-item-name', async (req, res) => {
   try {
-    const { keyword = '', limit = 100 } = req.query;
+    const { keyword = '', limit = 20, offset = 0 } = req.query;
 
     if (!keyword) {
       return res.status(400).json({ error: 'Keyword is required' });
@@ -349,6 +442,22 @@ app.get('/api/droplist/by-item-name', async (req, res) => {
     const convertedKeyword = converter(keyword);
 
     const connection = await pool.getConnection();
+
+    // 先获取总数
+    const countQuery = `
+      SELECT COUNT(*) as total
+      FROM droplist d
+      WHERE d.itemId IN (
+        SELECT item_id FROM etcitem WHERE name LIKE ?
+        UNION
+        SELECT item_id FROM weapon WHERE name LIKE ?
+        UNION
+        SELECT item_id FROM armor WHERE name LIKE ?
+      )
+    `;
+
+    const searchPattern = `%${convertedKeyword}%`;
+    const [countResult] = await connection.execute(countQuery, [searchPattern, searchPattern, searchPattern]);
 
     const query = `
       SELECT
@@ -380,11 +489,10 @@ app.get('/api/droplist/by-item-name', async (req, res) => {
         SELECT item_id FROM armor WHERE name LIKE ?
       )
       ORDER BY d.chance DESC
-      LIMIT ?
+      LIMIT ? OFFSET ?
     `;
 
-    const searchPattern = `%${convertedKeyword}%`;
-    const [results] = await connection.execute(query, [searchPattern, searchPattern, searchPattern, parseInt(limit)]);
+    const [results] = await connection.execute(query, [searchPattern, searchPattern, searchPattern, parseInt(limit), parseInt(offset)]);
 
 
     connection.release();
@@ -397,6 +505,7 @@ app.get('/api/droplist/by-item-name', async (req, res) => {
     res.json({
       success: true,
       data: formattedResults,
+      total: countResult[0].total,
       keyword
     });
 
@@ -420,22 +529,48 @@ app.get('/api/etcitems', async (req, res) => {
 
     const connection = await pool.getConnection();
 
-    const query = `
-      SELECT item_id, name, unidentified_name_id, identified_name_id,
-             item_type, use_type, material, weight, invgfx, grdgfx,
-             itemdesc_id, stackable, max_charge_count, dmg_small,
-             dmg_large, min_lvl, max_lvl, locx, locy, mapid, bless,
-             trade, cant_delete, can_seal, delay_id, delay_time,
-             delay_effect, food_volume, save_at_once
-      FROM etcitem
-      WHERE name LIKE ?
-      ORDER BY item_id ASC
-      LIMIT ? OFFSET ?
-    `;
+    // Check if keyword is a number (ID search)
+    const isIdSearch = !isNaN(keyword) && keyword.trim() !== '';
+    
+    let query, countQuery, params, countParams;
+    
+    if (isIdSearch) {
+      query = `
+        SELECT item_id, name, classname, name_id,
+               item_type, use_type, material, weight, invgfx, grdgfx,
+               itemdesc_id, stackable, max_charge_count, dmg_small,
+               dmg_large, min_lvl, max_lvl, bless,
+               trade, cant_delete, delay_id, delay_time,
+               delay_effect, food_volume, save_at_once
+        FROM etcitem
+        WHERE item_id = ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM etcitem WHERE item_id = ?`;
+      params = [parseInt(keyword), parseInt(limit), parseInt(offset)];
+      countParams = [parseInt(keyword)];
+    } else {
+      query = `
+        SELECT item_id, name, classname, name_id,
+               item_type, use_type, material, weight, invgfx, grdgfx,
+               itemdesc_id, stackable, max_charge_count, dmg_small,
+               dmg_large, min_lvl, max_lvl, bless,
+               trade, cant_delete, delay_id, delay_time,
+               delay_effect, food_volume, save_at_once
+        FROM etcitem
+        WHERE name LIKE ?
+        ORDER BY item_id ASC
+        LIMIT ? OFFSET ?
+      `;
+      countQuery = `SELECT COUNT(*) as total FROM etcitem WHERE name LIKE ?`;
+      const searchPattern = `%${convertedKeyword}%`;
+      params = [searchPattern, parseInt(limit), parseInt(offset)];
+      countParams = [searchPattern];
+    }
 
-    const searchPattern = `%${convertedKeyword}%`;
-    const [results] = await connection.execute(query, [searchPattern, parseInt(limit), parseInt(offset)]);
-
+    const [results] = await connection.execute(query, params);
+    const [countResult] = await connection.execute(countQuery, countParams);
 
     connection.release();
 
@@ -447,12 +582,11 @@ app.get('/api/etcitems', async (req, res) => {
     res.json({
       success: true,
       data: formattedResults,
-      total: results.length,
+      total: countResult[0].total,
       keyword
     });
 
   } catch (error) {
-
     console.error('Etcitem search error:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
@@ -726,11 +860,11 @@ app.get('/api/items/detail', async (req, res) => {
     const connection = await pool.getConnection();
 
     const query = `
-      SELECT item_id, name, unidentified_name_id, identified_name_id,
+      SELECT item_id, name, classname, name_id,
              item_type, use_type, material, weight, invgfx, grdgfx,
              itemdesc_id, stackable, max_charge_count, dmg_small,
-             dmg_large, min_lvl, max_lvl, locx, locy, mapid, bless,
-             trade, cant_delete, can_seal, delay_id, delay_time,
+             dmg_large, min_lvl, max_lvl, bless,
+             trade, cant_delete, delay_id, delay_time,
              delay_effect, food_volume, save_at_once
       FROM etcitem
       WHERE item_id = ?
