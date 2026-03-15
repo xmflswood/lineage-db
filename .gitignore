@@ -1,0 +1,5 @@
+# Dependencies
+node_modules/
+
+#也可以忽略所有子目录中的 node_modules
+**/node_modules/
