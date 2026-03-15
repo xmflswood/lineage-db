@@ -423,7 +423,6 @@ INSERT INTO `spawnlist_scenery` VALUES ('30394', '81177', '85', '32813', '32725'
 INSERT INTO `spawnlist_scenery` VALUES ('30395', '81177', '85', '32780', '32766', '0', '9', '0');
 INSERT INTO `spawnlist_scenery` VALUES ('30396', '81177', '85', '32744', '32774', '0', '30', '0');
 INSERT INTO `spawnlist_scenery` VALUES ('30397', '81179', '1522', '32762', '32792', '0', '81', '0');
-INSERT INTO `spawnlist_scenery` VALUES ('30398', '81171', '6331', '32871', '32830', '0', '5140', '0');
 INSERT INTO `spawnlist_scenery` VALUES ('30399', '71211', '1630', '32728', '32794', '5', '62', '0');
 INSERT INTO `spawnlist_scenery` VALUES ('30400', '81177', '85', '32766', '32768', '0', '8', '0');
 INSERT INTO `spawnlist_scenery` VALUES ('30401', '81106', '1036', '32795', '33189', '0', '4', '0');
