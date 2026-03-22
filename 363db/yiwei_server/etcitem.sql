@@ -1921,7 +1921,7 @@ INSERT INTO `etcitem` VALUES ('55078', '燃烧的橘炽娃娃：蓝炙', 'doll.M
 INSERT INTO `etcitem` VALUES ('55079', '猛烈的橘炽娃娃：蓝炙', 'doll.Magic_Doll', '$12580', 'other', 'other', 'wood', '5000', '5013', '3963', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1');
 INSERT INTO `etcitem` VALUES ('55080', '爆发的橘炽娃娃：蓝炙', 'doll.Magic_Doll', '$12581', 'other', 'other', 'wood', '5000', '5015', '3963', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1');
 INSERT INTO `etcitem` VALUES ('55081', '雷厉的橘炽娃娃：蓝炙', 'doll.Magic_Doll', '$12582', 'other', 'other', 'wood', '5000', '5017', '3963', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1');
-INSERT INTO `etcitem` VALUES ('55082', '猖狂的橘炽娃娃：蓝炙', 'doll.Magic_Doll', '$12583', 'other', 'other', 'wood', '5000', '5019', '3963', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1');
+INSERT INTO `etcitem` VALUES ('55082', '猖狂的橘炽娃娃：蓝炙', 'doll.Magic_Doll', '猖狂的橘炽娃娃：蓝炙', 'other', 'other', 'wood', '5000', '5019', '3963', '0', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '1');
 INSERT INTO `etcitem` VALUES ('49532', '虔诚祝福', 'event.Item_Mazu', '虔诚祝福', 'other', 'normal', 'gemstone', '0', '2563', '3963', '0', '1', '0', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0');
 INSERT INTO `etcitem` VALUES ('44105', '经验药水250%', 'event.Exp25', '经验药水250%', 'questitem', 'normal', 'gemstone', '0', '529', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '0', '1', '0', '0', '0', '0', '0');
 INSERT INTO `etcitem` VALUES ('44106', '经验药水300%', 'event.Exp30', '经验药水300%', 'questitem', 'normal', 'gemstone', '0', '529', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '0', '1', '0', '0', '0', '0', '0');
@@ -1959,3 +1959,4 @@ INSERT INTO `etcitem` VALUES ('49537', '封号卡', 'shop.UserTitle', '封号卡
 INSERT INTO `etcitem` VALUES ('49538', '密码修改卷轴', 'shop.ResetPassword', '密码修改卷轴', 'other', 'normal', 'paper', '0', '205', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0');
 INSERT INTO `etcitem` VALUES ('60219', '魔法娃娃成长药剂', 'doll.DollSolution', '$11462', 'gem', 'choice_doll', 'gemstone', '20', '4110', '3963', '0', '1', '0', '0', '0', '0', '0', '1', '1', '1', '0', '0', '0', '0', '1');
 INSERT INTO `etcitem` VALUES ('49295', '奇岩传送符', 'teleport.SOR_UserSet2', '奇岩传送符', 'other', 'normal', 'paper', '10000', '1036', '2879', '922', '0', '0', '0', '0', '0', '0', '1', '1', '0', '0', '0', '0', '0', '1');
+INSERT INTO `etcitem` VALUES ('58031', '一键换刀', 'Huan_dao', '一键换刀', 'other', 'normal', 'paper', '0', '205', '3384', '0', '1', '0', '0', '0', '0', '0', '1', '0', '0', '0', '0', '0', '0', '0');

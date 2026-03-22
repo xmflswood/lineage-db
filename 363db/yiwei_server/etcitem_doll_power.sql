@@ -196,7 +196,7 @@ INSERT INTO `etcitem_doll_power` VALUES ('168', 'Doll_DmgDownR', '10', '4', '0',
 INSERT INTO `etcitem_doll_power` VALUES ('169', 'Doll_DmgDownR', '5', '4', '0', '4%机率，怪物伤害减免+5');
 INSERT INTO `etcitem_doll_power` VALUES ('170', 'Doll_GetItem', '600', '40308', '100', '每10分钟给予金币100');
 INSERT INTO `etcitem_doll_power` VALUES ('171', 'Doll_Skill', '29', '10', '0', '1%机率施展“缓速术”');
-INSERT INTO `etcitem_doll_power` VALUES ('172', 'Doll_Skill', '74', '10', '0', '1%机率施展“流星雨”');
+INSERT INTO `etcitem_doll_power` VALUES ('172', 'Doll_Skill', '14064', '100', '0', '10%机率施展“污浊落雷”');
 INSERT INTO `etcitem_doll_power` VALUES ('173', 'Doll_Add_Skill', '26', '0', '0', '通畅');
 INSERT INTO `etcitem_doll_power` VALUES ('174', 'Doll_Add_Skill', '42', '0', '0', '体魄');
 INSERT INTO `etcitem_doll_power` VALUES ('178', 'Doll_Add_Skill', '149', '0', '0', '风之神射');

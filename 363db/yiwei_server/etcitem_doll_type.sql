@@ -108,4 +108,4 @@ INSERT INTO `etcitem_doll_type` VALUES ('55078', '燃烧的橘炽娃娃：蓝炙
 INSERT INTO `etcitem_doll_type` VALUES ('55079', '猛烈的橘炽娃娃：蓝炙', '163', '41246', '50', '1800', '9707', '$12580');
 INSERT INTO `etcitem_doll_type` VALUES ('55080', '爆发的橘炽娃娃：蓝炙', '164,169', '41246', '50', '1800', '9708', '$12581');
 INSERT INTO `etcitem_doll_type` VALUES ('55081', '雷厉的橘炽娃娃：蓝炙', '165,168', '41246', '50', '1800', '9709', '$12582');
-INSERT INTO `etcitem_doll_type` VALUES ('55082', '猖狂的橘炽娃娃：蓝炙', '91,167', '41246', '50', '1800', '9710', '$12583');
+INSERT INTO `etcitem_doll_type` VALUES ('55082', '猖狂的橘炽娃娃：蓝炙', '136,133,130,172,91,47', '41246', '50', '1800', '9710', '猖狂的橘炽娃娃：蓝炙');
